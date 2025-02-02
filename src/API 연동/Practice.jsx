@@ -18,9 +18,7 @@ function Practice() {
                 setUsers(null);
                 // loading 상태를 true로 변경
                 setLoading(true);
-                const res = await axios.get(
-                    "https://jsonplaceholder.typicode.com/users"
-                );
+                const res = await axios.get("https://jsonplaceholder.typicode.com/users");
                 // res.data 안에 API 데이터가 있다.
                 setUsers(res.data);
             } catch (e) {
