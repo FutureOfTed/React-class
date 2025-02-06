@@ -7,14 +7,15 @@ import './index.css';
 // import App from "./로그인 페이지 실습/App"
 // import "./로그인 페이지 실습/index.css";
 // import App from "./회원가입 페이지/App";
-import Practice3 from "./API 연동/Practice3";
+// import Practice3 from "./API 연동/Practice3";
+import Sign_in from "./회원가입 페이지2/Sign_in";
 
 // const numbers = [1, 2, 3, 4, 5];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Practice3 />
+    <Sign_in />
   </React.StrictMode> //최종적으로 렌더링할 component를 여기에 넣어야 함. 
 );
 
