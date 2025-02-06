@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { idDuplicateCheck } from "./IdCheck";
 
 const SignupPageHeader = styled.header`
     width : 100%;
@@ -40,8 +41,8 @@ const InputWrapper = styled.div`
 
 const InputContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-direction: column; // 세로 정렬
+    gap: 10px;  // 아이디 입력란과 버튼 사이에 간격 추가
 `;
 
 const Input = styled.input`
@@ -51,7 +52,7 @@ const Input = styled.input`
     font-size: 16px;
     &:focus {
         border-color: #007bff;
-        outline: none;
+        outline: 1px solid blue;
     }
 `;
 
@@ -88,6 +89,14 @@ const Checkbutton = styled.button`
         background-color : #0056b3;
     }
 `;
+
+const ErrorMessage = styled.small`
+    color : red;
+    font-size : 12px;
+    font-wegith : 600;
+    margin-top : 5px;
+    display : block;
+`
 
 function Sign_in() {
     const [id, setId] = useState('');
@@ -225,7 +234,7 @@ function Sign_in() {
                                 maxLength = {10}
                             />
                             <Checkbutton type="button" onClick={idCheckHandler}>중복 확인</Checkbutton>
-                            {idError && <small className = {isIdAvailable ? 'idAvailable' : ''}>{idError}</small>}
+                            {idError && <ErrorMessage>{idError}</ErrorMessage>}
                         </InputContainer>
                         <InputContainer>
                             <label htmlFor = 'id'>비밀번호</label>
@@ -239,7 +248,7 @@ function Sign_in() {
                                 theme = 'underLine'
                                 maxLength = {16}
                             />
-                            {passwordError && <small>{passwordError}</small>}
+                            {passwordError && <ErrorMessage>{passwordError}</ErrorMessage>}
                             <Input
                                 onChange = {onChangePasswordHandler}
                                 type = "password"
@@ -250,7 +259,7 @@ function Sign_in() {
                                 them = 'underLine'
                                 maxLength = {16}
                             />
-                            {confirmError && <small>{confirmError}</small>}
+                            {confirmError && <ErrorMessage>{confirmError}</ErrorMessage>}
                         </InputContainer>
                     </InputWrapper>
                     <ButtonContainer>
